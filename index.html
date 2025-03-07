@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap">
+    <meta name="theme-color" content="#3498db">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Weather Dashboard</h1>
+            <p class="location">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                Bandung, Indonesia
+            </p>
+        </header>
+
+        <div class="current-weather">
+    <div class="loading" id="loading">Loading weather data...</div>
+    <div class="weather-card" id="current-weather-card" style="display: none;">
+        <div class="weather-main">
+            <div class="weather-icon">
+                <img id="weather-icon" src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" alt="Weather icon">
+            </div>
+            <div class="temp-container">
+                <span id="current-temp" class="temperature">--</span>
+                <span class="unit">°C</span>
+            </div>
+        </div>
+        <div class="weather-info">
+            <h2>Current Weather</h2>
+            <p id="weather-description">Partly Cloudy</p>
+            <div class="weather-details">
+                <div class="detail">
+                    <span class="label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-droplets"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></svg>
+                        Humidity
+                    </span>
+                    <span id="humidity">--%</span>
+                </div>
+                <div class="detail">
+                    <span class="label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wind"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg>
+                        Wind
+                    </span>
+                    <span id="wind-speed">-- km/h</span>
+                </div>
+                <div class="detail">
+                    <span class="label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                        UV Index
+                    </span>
+                    <span id="uv-index">--</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div class="forecast-section">
+            <h2>Hourly Forecast</h2>
+            <div class="hourly-forecast" id="hourly-forecast">
+                <!-- Hourly forecast items will be inserted here -->
+                <div class="hourly-item">
+                    <div class="time">Now</div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1146/1146869.png" alt="Weather icon">
+                    <div class="hourly-temp">28°C</div>
+                    <div class="hourly-precip">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud-rain"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M16 14v6"/><path d="M8 14v6"/><path d="M12 16v6"/></svg>
+                        10%
+                    </div>
+                </div>
+                <!-- More hourly items for demonstration -->
+            </div>
+        </div>
+
+        <div class="forecast-section">
+    <h2>7-Day Forecast</h2>
+    <div class="daily-forecast" id="daily-forecast">
+        <!-- Daily forecast items will be inserted here -->
+    </div>
+</div>
+
+        <div class="api-test-section">
+            <h2>API Testing</h2>
+            <div class="api-buttons">
+                <button id="test-raw-api">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    Test Raw API
+                </button>
+                <button id="test-processed-api">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                    Test Processed API
+                </button>
+            </div>
+            <div class="api-result">
+                <pre id="api-result">Results will appear here...</pre>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Weather data provided by <a href="https://open-meteo.com/" target="_blank">Open-Meteo</a></p>
+        <p>Created for educational purposes</p>
+        <p>
+            <button id="toggle-theme" style="margin-top: 15px; padding: 8px 15px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                Toggle Dark Mode
+            </button>
+        </p>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
+
