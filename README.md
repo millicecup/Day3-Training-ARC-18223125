@@ -14,12 +14,12 @@ Simple weather dashboard spesifically in Bandung, West Java, Indonesia applicati
    cd weather-dashboard
    ```
 2. **Start a Local Server**
-   Run the following command in the project directory:
+   Run :
    ```sh
    python -m http.server 8000
    ```
 3. **Open in Browser**
-   Visit `http://localhost:8000` in your web browser.
+   `http://localhost:8000` 
 
 ## Credits
 Weather data provided by [Open-Meteo](https://open-meteo.com/).
